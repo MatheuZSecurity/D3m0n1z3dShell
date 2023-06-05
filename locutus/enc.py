@@ -20,6 +20,8 @@ if c2_addr !="":
       c.settimeout(3)
   except:
       c=False
+else:
+    c=False
 
 def toBinary(a):
   l,m=[],[]
