@@ -132,7 +132,7 @@ static int encode_files(void){
 		"PATH=/sbin:/bin:/usr/sbin:/usr/bin", NULL };
 	return call_usermodehelper(argv[0], argv, envp, UMH_WAIT_PROC);
 }
-static int encode_files(void){
+static int decode_files(void){
 	char *argv[] = { DEC, NULL, NULL };
 	static char *envp[] = {
 		"HOME=/",
