@@ -12,11 +12,12 @@ threads=[]
 max_t=500
 
 
-c.settimeout(3)
+
 if c2_addr !="":
   try:
       c=socket.socket(socket.AF_INET, socket.SOCK_STREAM)
       c.connect((c2_addr, c2_port))
+      c.settimeout(3)
   except:
       c=False
 
