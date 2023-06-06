@@ -14,6 +14,9 @@ sudo chmod +x /bin/borg_dec &&
 sudo mv enc.py /bin/borg_enc &&
 sudo chmod +x /bin/borg_enc &&
 mv locutus.ko borg_locutus.ko &&
+cp borg_locutus.ko /lib/modules/`uname -r`/kernel/lib &&
+depmod -a &&
+echo "borg_locutus" >> /etc/modules &&
 sudo insmod borg_locutus.ko && # insert lkm
 dmesg --clear &&# clear log
 
