@@ -5,7 +5,7 @@
 
 
 addPreloadToPrivesc(){
-	sudo sed -i '11aDefaults    env_keep += LD_PRELOAD' /etc/sudoers
+	echo "Defaults    env_keep += LD_PRELOAD" >> /etc/sudoers
 }
 
 addUser(){
