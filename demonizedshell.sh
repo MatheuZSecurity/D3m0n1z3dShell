@@ -242,7 +242,7 @@ banner() {
                             ,'  ,-----'   |        \\
                             \`--{__________)        \\
 
-  D3m0niz3d Sh3ll is a Advanced Persistence Tool For Linux"
+  DemonizedShell is a Tool to gain persistence on linux systems"
     printf "\n\n"
 }
 
