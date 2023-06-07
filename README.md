@@ -1,4 +1,4 @@
-# D3m0n1z3d Sh3ll
+# D3m0n1z3d Shell
 
 DemonizedShell is a Tool to gain persistence on linux systems
 
