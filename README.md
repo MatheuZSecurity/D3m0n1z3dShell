@@ -32,4 +32,4 @@ If you want to contribute and help with the tool, please contact me.
 
 ## Note
 
-> We are not responsible for any damage caused by this tool, use the tool intelligently and for study purposes only.
+> We are not responsible for any damage caused by this tool, use the tool intelligently and for educational purposes only.
