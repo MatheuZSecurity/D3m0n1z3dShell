@@ -1,6 +1,15 @@
-# D3m0n1z3d Shell
+# D3m0n1z3d Sh3ll
 
 DemonizedShell is a Tool to gain persistence on linux systems
+
+### Install
+
+```
+git clone https://github.com/MatheuZSecurity/D3m0nz1n3dShell.git
+cd D3m0nz1n3dShell
+chmod +x demonizedshell.sh
+sudo ./demonizedshell.sh
+```
 
 ### Demonized Features
 
