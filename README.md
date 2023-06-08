@@ -13,7 +13,7 @@ chmod +x demonizedshell.sh
 sudo ./demonizedshell.sh
 ```
 
-# Or
+### One-Liner Install
 
 ```
 curl -L https://github.com/MatheuZSecurity/D3m0n1z3dShell/archive/main.tar.gz | tar xz && cd D3m0n1z3dShell-main && sudo bash install.sh
