@@ -16,7 +16,6 @@ sudo ./demonizedshell.sh
 
 ```
 sudo curl -sSL https://github.com/MatheuZSecurity/D3m0n1z3dShell/raw/main/install.sh | sudo bash
-
 ```
 
 ### Demonized Features
