@@ -12,6 +12,12 @@ cd D3m0nz1n3dShell
 chmod +x demonizedshell.sh
 sudo ./demonizedshell.sh
 ```
+### Easy Way
+
+```
+sudo curl -sSL https://github.com/MatheuZSecurity/D3m0n1z3dShell/raw/main/install.sh | sudo bash
+
+```
 
 ### Demonized Features
 
