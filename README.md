@@ -40,7 +40,7 @@ curl -L https://github.com/MatheuZSecurity/D3m0n1z3dShell/archive/main.tar.gz | 
 
 * [ ] LD_PRELOAD Rootkit
 * [ ] Process Injection
-* [ ] install for example: curl github.com/test/test/demonized.sh | bash
+* [x] install for example: curl github.com/test/test/demonized.sh | bash
 * [ ] Intercept Syscall Write from a file
 
 And other types of features that will come in the future.
