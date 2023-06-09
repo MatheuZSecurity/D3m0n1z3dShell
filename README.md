@@ -36,6 +36,7 @@ curl -L https://github.com/MatheuZSecurity/D3m0n1z3dShell/archive/main.tar.gz | 
 * LD_PRELOAD Setup PrivEsc
 * Static Binaries For Process Monitoring, Dump credentials, Enumeration, Trolling and Others Binaries.
 
+----
 #### Auto Generate SSH keypair for all users:
 
 This feature automatically generates SSH key pairs (public and private keys) for all users on a system. SSH keys are used for secure authentication and communication between systems.
@@ -83,6 +84,8 @@ The LD_PRELOAD environment variable is used to specify a shared library that sho
 #### Static Binaries for Process Monitoring, Dump Credentials, Enumeration, Trolling, and other Binaries:
 
 Static binaries are compiled executables that include all the necessary libraries and dependencies, making them self-contained and portable. This feature involves creating custom static binaries with various functionalities, such as process monitoring, credential dumping, system enumeration, trolling, and potentially other undisclosed actions.
+
+----
 
 ### Pending Features
 
