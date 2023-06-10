@@ -45,6 +45,7 @@ sudo curl -s https://raw.githubusercontent.com/MatheuZSecurity/D3m0n1z3dShell/ma
 * [ ] LD_PRELOAD Rootkit
 * [ ] Process Injection
 * [x] install for example: curl github.com/test/test/demonized.sh | bash
+* [x] Static D3m0n1z3dShell
 * [ ] Intercept Syscall Write from a file
 
 And other types of features that will come in the future.
