@@ -22,7 +22,7 @@ curl -L https://github.com/MatheuZSecurity/D3m0n1z3dShell/archive/main.tar.gz | 
 
 Load D3m0n1z3dShell statically (without the static-binaries directory):
 ```
-curl -s https://raw.githubusercontent.com/MatheuZSecurity/D3m0n1z3dShell/main/static/demonizedshell_static.sh | bash
+sudo curl -s https://raw.githubusercontent.com/MatheuZSecurity/D3m0n1z3dShell/main/static/demonizedshell_static.sh -o /tmp/demonizedshell_static.sh && sudo bash /tmp/demonizedshell_static.sh
 ```
 
 ### Demonized Features
