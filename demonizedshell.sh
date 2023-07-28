@@ -220,6 +220,13 @@ SetupLdPreloadPrivesc(){
   ./ld.sh
 }
 
+AntirevTechnique(){
+  git clone https://github.com/MatheuZSecurity/NullSection
+  cd NullSection
+  gcc nullsection.c -o nullsection
+  ./nullsection
+}
+
 banner() {
     rainbow "
                                   ,
@@ -254,6 +261,7 @@ menu() {
   [04] Systemd User level         [09] ICMP Backdoor
   [05] Systemd Root Level         [10] LKM Rootkit
                                   [11] Setup privesc LD_PRELOAD
+                                  [12] Anti-Reversing Technique - Overwrite Section Header with Null Bytes
 
     [*] Coming soon others features [*]
 
@@ -285,6 +293,8 @@ EOF
         lkmRootkit
     elif [ "$MENUINPUT" == "11" ] || [ "$MENUINPUT" == "11" ]; then
         SetupLdPreloadPrivesc
+    elif [ "$MENUINPUT" == "11" ] || [ "$MENUINPUT" == "12" ]; then
+        AntirevTechnique
     else 
         echo "This option does not exist"
     fi
