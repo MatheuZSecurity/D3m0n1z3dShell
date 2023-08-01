@@ -17,7 +17,7 @@ sudo ./demonizedshell.sh
 
 Download D3m0n1z3dShell with all files:
 ```
-curl -L https://github.com/MatheuZSecurity/D3m0n1z3dShell/archive/main.tar.gz | tar xz && cd D3m0n1z3dShell-main && sudo bash install.sh
+curl -L https://github.com/MatheuZSecurity/D3m0n1z3dShell/archive/main.tar.gz | tar xz && cd D3m0n1z3dShell-main && sudo ./demonizedshell.sh
 ```
 
 Load D3m0n1z3dShell statically (without the static-binaries directory):
