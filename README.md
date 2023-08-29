@@ -48,6 +48,7 @@ sudo curl -s https://raw.githubusercontent.com/MatheuZSecurity/D3m0n1z3dShell/ma
 * [x] Static D3m0n1z3dShell
 * [ ] Intercept Syscall Write from a file
 * [x] ELF/Rootkit Anti-Reversing Technique
+* [ ] PAM Backdoor
 
 And other types of features that will come in the future.
 
