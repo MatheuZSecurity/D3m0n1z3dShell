@@ -1,6 +1,6 @@
 #!/bin/bash
 
-
+# LD PRIVESC
 # This script basically activate Privesc with LD_PRELOAD and add your user in /etc/sudoers, but if you want, you add www-data too.
 
 
