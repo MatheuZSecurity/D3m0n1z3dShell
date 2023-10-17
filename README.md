@@ -57,7 +57,7 @@ And other types of features that will come in the future.
 
 ## Contribution
 
-If you want to contribute and help with the tool, please contact me.
+If you want to contribute and help with the tool, please contact me on twitter: @MatheuzSecurity
 
 ## Note
 
