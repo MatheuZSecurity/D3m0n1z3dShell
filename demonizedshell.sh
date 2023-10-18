@@ -264,7 +264,7 @@ banner() {
                             ,'  ,-----'   |        \\
                             \`--{__________)        \\
 
-  DemonizedShell is a Tool to gain persistence on linux systems"
+  Demonized Shell is an Advanced Tool for persistence in linux"
     printf "\n\n"
 }
 
