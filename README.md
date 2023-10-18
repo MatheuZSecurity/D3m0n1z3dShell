@@ -2,7 +2,7 @@
 
 <p align="center"><img src="banner.png"></p>
 
-DemonizedShell is a Tool to gain persistence on linux systems
+Demonized Shell is an Advanced Tool for persistence in linux.
 
 ### Install
 
