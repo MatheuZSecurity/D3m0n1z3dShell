@@ -236,6 +236,12 @@ MaliciousInit(){
 	./init.sh
 }
 
+rcLocalPersis(){
+	chmod +x scripts/rclocal.sh
+	cd scripts
+	./rclocal.sh
+}
+
 banner() {
     rainbow "
                                   ,
@@ -272,6 +278,7 @@ menu() {
                                   [11] Setup privesc LD_PRELOAD
                                   [12] Anti-Reversing Technique - Overwrite Section Header with Null Bytes
                                   [13] Init.d Persistence
+                                  [14] rc.local Persistence
 
     [*] Coming soon others features [*]
 
@@ -305,8 +312,10 @@ EOF
         SetupLdPreloadPrivesc
     elif [ "$MENUINPUT" == "12" ] || [ "$MENUINPUT" == "12" ]; then
         AntirevTechnique
-    elif [ "$MENUINPUT" == "13" ] || [ "$MENUINPUT" == "12" ]; then
+    elif [ "$MENUINPUT" == "13" ] || [ "$MENUINPUT" == "13" ]; then
         MaliciousInit
+    elif [ "$MENUINPUT" == "14" ] || [ "$MENUINPUT" == "14" ]; then
+        rcLocalPersis
     else 
         echo "This option does not exist"
     fi
