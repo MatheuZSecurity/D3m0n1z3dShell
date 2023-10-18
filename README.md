@@ -49,7 +49,7 @@ sudo curl -s https://raw.githubusercontent.com/MatheuZSecurity/D3m0n1z3dShell/ma
 * [ ] Intercept Syscall Write from a file
 * [x] ELF/Rootkit Anti-Reversing Technique
 * [ ] PAM Backdoor
-* [ ] rc.local Persistence
+* [x] rc.local Persistence
 * [x] init.d Persistence
 * [ ] motd Persistence
 
