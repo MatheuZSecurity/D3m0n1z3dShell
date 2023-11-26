@@ -51,7 +51,7 @@ sudo curl -s https://raw.githubusercontent.com/MatheuZSecurity/D3m0n1z3dShell/ma
 * [ ] PAM Backdoor
 * [x] rc.local Persistence
 * [x] init.d Persistence
-* [ ] motd Persistence
+* [x] motd Persistence
 
 And other types of features that will come in the future.
 
