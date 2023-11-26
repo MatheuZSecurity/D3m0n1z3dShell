@@ -1,0 +1,3 @@
+Oneline for clear all logs in /var/log
+
+sudo find /var/log/ -type f -exec sh -c 'echo "" > "$0"' {} \;
