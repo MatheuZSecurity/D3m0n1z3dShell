@@ -242,6 +242,12 @@ rcLocalPersis(){
 	./rclocal.sh
 }
 
+MotdPersistence(){
+	chmod +x scripts/motd.sh
+	cd scripts
+	./motd.sh
+}
+
 banner() {
     rainbow "
                                   ,
@@ -279,6 +285,7 @@ menu() {
                                   [12] Anti-Reversing Technique - Overwrite Section Header with Null Bytes
                                   [13] Init.d Persistence
                                   [14] rc.local Persistence
+                                  [15] Motd Persistence
 
     [*] Coming soon others features [*]
 
@@ -316,6 +323,8 @@ EOF
         MaliciousInit
     elif [ "$MENUINPUT" == "14" ] || [ "$MENUINPUT" == "14" ]; then
         rcLocalPersis
+    elif [ "$MENUINPUT" == "15" ] || [ "$MENUINPUT" == "15" ]; then
+        MotdPersistence
     else 
         echo "This option does not exist"
     fi
