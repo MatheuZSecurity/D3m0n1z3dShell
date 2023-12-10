@@ -7,8 +7,8 @@ Demonized Shell is an Advanced Tool for persistence in linux.
 ### Install
 
 ```
-git clone https://github.com/MatheuZSecurity/D3m0nz1n3dShell.git
-cd D3m0nz1n3dShell
+git clone https://github.com/MatheuZSecurity/D3m0n1z3dShell.git
+cd D3m0n1z3dShell
 chmod +x demonizedshell.sh
 sudo ./demonizedshell.sh
 ```
