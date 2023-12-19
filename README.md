@@ -52,7 +52,7 @@ sudo curl -s https://raw.githubusercontent.com/MatheuZSecurity/D3m0n1z3dShell/ma
 * [x] rc.local Persistence
 * [x] init.d Persistence
 * [x] motd Persistence
-* [ ] Persistence via webshell
+* [ ] Persistence via php webshell and aspx webshell
 
 And other types of features that will come in the future.
 
