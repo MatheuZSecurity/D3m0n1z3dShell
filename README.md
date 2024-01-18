@@ -53,6 +53,7 @@ sudo curl -s https://raw.githubusercontent.com/MatheuZSecurity/D3m0n1z3dShell/ma
 * [x] init.d Persistence
 * [x] motd Persistence
 * [ ] Persistence via php webshell.
+* [ ] ACL Persistence.
 
 And other types of features that will come in the future.
 
