@@ -46,7 +46,6 @@ sudo curl -s https://raw.githubusercontent.com/MatheuZSecurity/D3m0n1z3dShell/ma
 * [X] Process Injection
 * [x] install for example: curl github.com/test/test/demonized.sh | bash
 * [x] Static D3m0n1z3dShell
-* [ ] Intercept Syscall Write from a file
 * [x] ELF/Rootkit Anti-Reversing Technique
 * [ ] PAM Backdoor
 * [x] rc.local Persistence
