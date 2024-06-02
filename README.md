@@ -34,7 +34,7 @@ sudo curl -s https://raw.githubusercontent.com/MatheuZSecurity/D3m0n1z3dShell/ma
 * Systemd Root Level
 * Bashrc Persistence
 * Privileged user & SUID bash
-* LKM Rootkit Modified, Bypassing rkhunter & chkrootkit
+* LKM Rootkit Modified, Bypassing rkhunter.
 * LKM Rootkit With file encoder. persistent icmp backdoor and others features.
 * ICMP Backdoor 
 * LD_PRELOAD Setup PrivEsc
@@ -42,7 +42,6 @@ sudo curl -s https://raw.githubusercontent.com/MatheuZSecurity/D3m0n1z3dShell/ma
 
 ### Pending Features
 
-* [ ] LD_PRELOAD Rootkit
 * [X] Process Injection
 * [x] install for example: curl github.com/test/test/demonized.sh | bash
 * [x] Static D3m0n1z3dShell
