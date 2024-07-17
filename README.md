@@ -50,7 +50,6 @@ sudo curl -s https://raw.githubusercontent.com/MatheuZSecurity/D3m0n1z3dShell/ma
 * [x] rc.local Persistence
 * [x] init.d Persistence
 * [x] motd Persistence
-* [ ] Persistence via php webshell.
 * [x] Persistence via ACL.
 * [ ] Reverse shell with a process name of your choice.
 
