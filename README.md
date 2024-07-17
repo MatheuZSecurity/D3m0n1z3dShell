@@ -1,6 +1,6 @@
 <h1 align="center">「😈」About D3m0n1z3dShell </h1>
 
-<p align="center"><img src="banner3.png"></p>
+<p align="center"><img src="carbon.png"></p>
 
 Demonized Shell is an Advanced Tool for persistence in linux.
 
