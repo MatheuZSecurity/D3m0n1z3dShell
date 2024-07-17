@@ -51,7 +51,7 @@ sudo curl -s https://raw.githubusercontent.com/MatheuZSecurity/D3m0n1z3dShell/ma
 * [x] init.d Persistence
 * [x] motd Persistence
 * [ ] Persistence via php webshell.
-* [ ] Persistence via ACL.
+* [x] Persistence via ACL.
 * [ ] Reverse shell with a process name of your choice.
 
 And other types of features that will come in the future.
