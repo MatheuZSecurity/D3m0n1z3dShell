@@ -248,6 +248,12 @@ MotdPersistence(){
 	./motd.sh
 }
 
+acl(){
+	chmod +x scripts/acl.sh
+	cd scripts
+	./acl.sh
+}
+
 banner() {
     rainbow "
                                   ,
@@ -286,6 +292,7 @@ menu() {
                                   [13] Init.d Persistence
                                   [14] rc.local Persistence
                                   [15] Motd Persistence
+                                  [16] ACL Persistence.
 
     [*] Coming soon others features [*]
 
@@ -325,6 +332,8 @@ EOF
         rcLocalPersis
     elif [ "$MENUINPUT" == "15" ] || [ "$MENUINPUT" == "15" ]; then
         MotdPersistence
+    elif [ "$MENUINPUT" == "15" ] || [ "$MENUINPUT" == "16" ]; then
+        acl
     else 
         echo "This option does not exist"
     fi
