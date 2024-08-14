@@ -254,6 +254,12 @@ acl(){
 	./acl.sh
 }
 
+procnamerev(){
+	chmod +x scripts/procname.sh
+	cd scripts
+	./procname.sh
+}
+
 banner() {
     rainbow "
                                   ,
@@ -293,6 +299,7 @@ menu() {
                                   [14] rc.local Persistence
                                   [15] Motd Persistence
                                   [16] ACL Persistence.
+                                  [17] Reverse shell with a process name of your choice.
 
     [*] Coming soon others features [*]
 
@@ -332,8 +339,10 @@ EOF
         rcLocalPersis
     elif [ "$MENUINPUT" == "15" ] || [ "$MENUINPUT" == "15" ]; then
         MotdPersistence
-    elif [ "$MENUINPUT" == "15" ] || [ "$MENUINPUT" == "16" ]; then
+    elif [ "$MENUINPUT" == "16" ] || [ "$MENUINPUT" == "16" ]; then
         acl
+    elif [ "$MENUINPUT" == "17" ] || [ "$MENUINPUT" == "17" ]; then
+        procnamerev
     else 
         echo "This option does not exist"
     fi
