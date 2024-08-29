@@ -52,6 +52,7 @@ sudo curl -s https://raw.githubusercontent.com/MatheuZSecurity/D3m0n1z3dShell/ma
 * [x] motd Persistence
 * [x] Persistence via ACL.
 * [x] Reverse shell with a process name of your choice.
+* [ ] Udev persistence.
 
 And other types of features that will come in the future.
 
